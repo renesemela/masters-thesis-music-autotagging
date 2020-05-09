@@ -1,2 +1,1 @@
-# masters-thesis-music-autotagging
-MASTER'S THESIS: AUTOMATIC TAGGING OF MUSICAL COMPOSITIONS USING MACHINE LEARNING METHODS 
+# Master's Thesis: Automatic Tagging of Musical Compositions Using Machine Learning Methods 
