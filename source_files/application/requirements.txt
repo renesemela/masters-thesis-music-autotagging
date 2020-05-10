@@ -1,0 +1,5 @@
+numpy==1.18.2
+pandas==1.0.3
+librosa==0.7.2
+tensorflow==2.1.0
+keras==2.3.1
