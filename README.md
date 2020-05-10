@@ -77,13 +77,13 @@ You can find this script in the ***application*** folder. It is completely stand
 cd application
 python application.py
 ```
-![application.png](https://github.com/renesemela/masters-thesis-music-autotagging/blob/master/images/application.png?raw=true)
+![application.png](https://github.com/renesemela/masters-thesis-music-autotagging/blob/master/readme_images/application.png?raw=true)
 
 ## Results of this work
 Here are some figures of the results on both datasets.
-![roc_auc_all_magnatagatune.png](https://github.com/renesemela/masters-thesis-music-autotagging/blob/master/images/roc_auc_all_magnatagatune.png?raw=true)
+![roc_auc_all_magnatagatune.png](https://github.com/renesemela/masters-thesis-music-autotagging/blob/master/readme_images/roc_auc_all_magnatagatune.png?raw=true)
 
-![roc_auc_all_lastfm.png](https://github.com/renesemela/masters-thesis-music-autotagging/blob/master/images/roc_auc_all_lastfm.png?raw=true)
+![roc_auc_all_lastfm.png](https://github.com/renesemela/masters-thesis-music-autotagging/blob/master/readme_images/roc_auc_all_lastfm.png?raw=true)
 
 ## Built With
 * Python
