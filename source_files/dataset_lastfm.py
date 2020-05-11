@@ -13,7 +13,7 @@ import argparse
 api_key_lastfm = ''
 api_key_spotify = ''
 n_tags = 107 # 107 is because some synonymous and unrelevant tags are present in top 100 Last.fm tags, so the final count is 100 after merging and deleting these tags.
-n_tracks = 55
+n_tracks = 3000
 
 # Function: Build dataset database
 def build_db(n_tags, n_tracks):
