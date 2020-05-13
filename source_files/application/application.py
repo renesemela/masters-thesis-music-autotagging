@@ -22,8 +22,8 @@ tag_names_lastfm100 = ['rock', 'electronic', 'alternative', 'indie', 'pop', 'fem
 tag_names_lastfm50 = ['rock', 'electronic', 'indie', 'alternative', 'pop', 'female_vocalists', 'alternative_rock', 'indie_rock', 'metal', 'experimental', 'ambient', 'instrumental', 'chillout', 'singer_songwriter', 'punk', 'folk', 'classic_rock', 'hip_hop', 'dance', 'hard_rock', 'british', 'death_metal', 'industrial', '80s', 'punk_rock', 'acoustic', 'indie_pop', 'heavy_metal', 'metalcore', 'hardcore', '90s', 'soul', 'progressive_rock', 'emo', 'beautiful', 'jazz', 'mellow', 'piano', 'psychedelic', 'downtempo', 'post_punk', 'progressive_metal', 'synthpop', 'electro', 'soundtrack', 'chill', 'love', 'post_hardcore', 'gothic', 'trip_hop']
 models_path = './data/models/' 
 models_list_mtt = ['fcnn3_magnatagatune.hdf5', 'fcnn4_magnatagatune.hdf5', 'fcnn5_magnatagatune.hdf5', 'fcnn6_magnatagatune.hdf5', 'crnn3_magnatagatune.hdf5', 'crnn4_magnatagatune.hdf5', 'crnn5_magnatagatune.hdf5', 'crnn6_magnatagatune.hdf5']
-models_list_lastfm50 = ['', '', 'fcnn5_lastfm50.hdf5', '', '', 'crnn4_lastfm50.hdf5', 'crnn5_lastfm50.hdf5', '']
-models_list_lastfm100 = ['', '', 'fcnn5_lastfm100.hdf5', '', '', 'crnn4_lastfm100.hdf5', 'crnn5_lastfm100.hdf5', '']
+models_list_lastfm50 = ['', '', 'fcnn5_lastfm50.hdf5', 'fcnn6_lastfm50.hdf5', '', 'crnn4_lastfm50.hdf5', 'crnn5_lastfm50.hdf5', '']
+models_list_lastfm100 = ['', '', 'fcnn5_lastfm100.hdf5', 'fcnn6_lastfm100.hdf5', '', 'crnn4_lastfm100.hdf5', 'crnn5_lastfm100.hdf5', '']
 
 # Function: Update status in status window
 def status_update(text):
@@ -58,10 +58,11 @@ def predict_tags():
         elif dataset_choice.get() == 1 and dataset_ntags.get() == 100:
             models_list = models_list_lastfm100
             tag_names = tag_names_lastfm100
+        status_update('Selected model: ' + models_list[model_choice.get()])
         # Reset listbox with results, reset progress bar, update status and update whole window
         lb_results.delete(0, 'end')
         pb_predict.config(value = 0)
-        status_update('\nConverting track.')
+        status_update('Converting track.')
         window.update()
         # Convert audio file to WAV and save as temporary WAV file
         path_wav = './data/current_song.wav'
@@ -76,16 +77,16 @@ def predict_tags():
         predictions_list = np.zeros((dataset_ntags.get(), n_segments))
         # Predict tags for each segment and save to 'predictions_list'
         status_update('Predicting tags for ' + str(n_segments) + '*30 seconds.')
+        model = load_model(models_path + models_list[model_choice.get()])
         for i in range(n_segments):
             status_update('Predicting segment: ' + str(i+1) + '/' + str(n_segments))
             pb_predict.config(value = (90/n_segments)*(i+1))
             window.update()
             melgram_current = melgram_computed[:,:,i*(1366):(i+1)*1366]
-            model = load_model(models_path + models_list[model_choice.get()])
             predictions = model.predict(melgram_current, batch_size=1, verbose=0)
             predictions = np.round((predictions * 100))[0]
             predictions = np.transpose(predictions)
-            predictions_list[:,i] = predictions 
+            predictions_list[:,i] = predictions
         # Save tag to results if tag probability is more than 50 %
         results_list = []
         for i in range(np.size(predictions_list,axis=0)):
@@ -103,7 +104,7 @@ def lastfm_limited():
     rbt_fcnn3['state'] = 'disabled'
     rbt_fcnn4['state'] = 'disabled'
     # rbt_fcnn5['state'] = 'disabled'
-    rbt_fcnn6['state'] = 'disabled'
+    # rbt_fcnn6['state'] = 'disabled'
     rbt_crnn3['state'] = 'disabled'
     # rbt_crnn4['state'] = 'disabled'
     # rbt_crnn5['state'] = 'disabled'
