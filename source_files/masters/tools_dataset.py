@@ -55,6 +55,9 @@ def get_lastfm(parameters_input, api_key_lastfm):
             elif response.status_code == 401:
                 print('Last.fm API: 401 - Unauthorized. Please check your API key.')
                 exit()
+            elif response.status_code == 403:
+                print('Last.fm API: 403 - Forbidden. Please check your API key.')
+                exit()
             elif response.status_code == 429:
                 print('Last.fm API: 429 - Too many requests. Waiting 60 seconds.')
                 time.sleep(60)

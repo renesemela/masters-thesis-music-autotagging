@@ -121,7 +121,7 @@ args = parser.parse_args()
 
 # Run crnn4 and magnatagatune if no switches or parameters are provided
 if args.architecture == None or args.dataset == None:
-    print('Invalid arguments. Choosing crnn4 and magnatagatune.')
+    print('Choosing default configuration: --architecture crnn4 --dataset magnatagatune.')
     train_test_network('crnn4', 'magnatagatune')
 else:
     train_test_network(args.architecture, args.dataset)
