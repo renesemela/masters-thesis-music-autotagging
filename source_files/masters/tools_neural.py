@@ -109,7 +109,7 @@ class model_custom_callback(Callback):
             epoch_str = '0' + epoch_str
         np.save(self.path_test_results + 'model_test_predictions_ep' + epoch_str, y_predicted)
 
-        # Save all metrics to model history file for future plotting
+        # Save all to model history file for future plotting
         np.savez(self.path_results + 'model_history.npz', 
             loss=self.loss, 
             acc=self.acc, 
@@ -118,7 +118,7 @@ class model_custom_callback(Callback):
             val_auc=self.val_auc, 
             test_auc=self.test_auc)
 
-        # Print metrics summary for current epoch
+        # Print summary for current epoch
         print('\n============ EPOCH ' + str(epoch+1) + ' SUMMARY ============')
         print('train_loss: \t' + str(round(self.loss[epoch+1], 4)))
         print('train_acc: \t' + str(round(self.acc[epoch+1], 4)))
@@ -136,7 +136,6 @@ class model_custom_callback(Callback):
         print('best val_auc: \t' + str(val_auc_max) + ' \t(epoch ' + str(index_val_auc_max) + ')')
         print('best test_auc: \t' + str(test_auc_max) + ' \t(epoch ' + str(index_test_auc_max) + ')')
 
-        # Plot all relevant metrics and save plots to the results folder
         # Plot and save model loss (train, validation)
         plt.figure()
         plt.title('Model loss')
