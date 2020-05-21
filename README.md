@@ -1,4 +1,6 @@
-# Master's Thesis: Automatic Tagging of Musical Compositions Using Machine Learning Methods 
+# Master's Thesis: Automatic Tagging of Musical Compositions Using Machine Learning Methods
+**CZECH NOTE:** Podrobný návod v českém jazyce lze nalézt v práci ***thesis.pdf*** v příloze **B**.
+
 Using artificial neural networks for music auto-tagging purposes. This whole work is written in *Python* (*Keras*, *TensorFlow*). There are 2 datasets used as a source for neural networks (*MagnaTagATune Dataset*, *Last.fm Dataset 2020*)
 
 This repository is one of the results of my master's thesis. 
@@ -14,8 +16,8 @@ This repository is one of the results of my master's thesis.
 These instructions will help you to get familiar with overall concept of source codes in this work.
 
 There are two folders:
-* **installation_files** - Contains prerequisites (*Python 3.7.7* and *Microsoft Visual C++ Redistributable for Visual Studio 2015, 2017 and 2019*).
-* **source_files** - Contains all source codes. This folder is considered as main working folder for running scripts.
+* ***installation_files*** - Contains prerequisites (*Python 3.7.7* and *Microsoft Visual C++ Redistributable for Visual Studio 2015, 2017 and 2019*).
+* ***source_files*** - Contains all source codes. This folder is considered as main working folder for running scripts.
 
 ### Prerequisites
 * *Microsoft Windows 10 (64-bit)*
