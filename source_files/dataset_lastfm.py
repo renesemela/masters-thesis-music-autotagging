@@ -10,8 +10,8 @@ Make sure you have installed all requirements from requirements.txt
 import argparse
 
 # Variables: Set global (can be edited)
-api_key_lastfm = ''
-api_key_spotify = ''
+api_key_lastfm = 'paste_your_api_key_here'
+api_key_spotify = 'paste_your_api_key_here'
 n_tags = 107 # 107 is because some synonymous and unrelevant tags are present in top 100 Last.fm tags, so the final count is 100 after merging and deleting these tags.
 n_tracks = 3000
 
